@@ -44,7 +44,7 @@ To fully deploy and simulate the cybersecurity threat detection and automated re
 | Component             | Specification              |
 |------------------------|-----------------------------|
 | Host Machine CPU       | 8 physical cores (Intel i7/i9 or AMD Ryzen 7/9 recommended) |
-| Host Machine RAM       | 32 GB minimum (higher preferred for smooth multitasking) |
+| Host Machine RAM       | 32 GB minimum |
 | Host Machine Storage   | 250 GB free disk space |
 | Virtualization Software| VMware Workstation Pro or VMware Player (or equivalent VirtualBox) |
 | Network Setup          | NAT Network (Internet access required) |
