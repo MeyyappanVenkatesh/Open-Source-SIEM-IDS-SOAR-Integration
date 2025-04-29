@@ -16,7 +16,9 @@ The system integrates:
 - **Shuffle** for security orchestration and automated response workflows (SOAR)
 - **VirusTotal API** for threat intelligence enrichment
 
-Deployed within a secure VMware-based virtual lab, this solution detects, analyzes, and autonomously mitigates real-world cyber threats Key achievements include **real-time detection**, **automated incident response**, **minimal human intervention**, and a design that is **scalable**, **affordable**, and **practically replicable**.
+**📥 [Access all Virtual Machines and Tools here](https://demontfortuniversity-my.sharepoint.com/:f:/r/personal/p2766441_my365_dmu_ac_uk/Documents/Virtual%20Machines?csf=1&web=1&e=iQ6fFs)**  
+Includes all required OVA files, configurations, helper scripts, and project documentation.
+
 
 ---
 
