@@ -49,14 +49,35 @@ To fully deploy and simulate the cybersecurity threat detection and automated re
 |------------------------|-----------------------------|
 | Host Machine CPU       | 8 physical cores (Intel i7/i9 or AMD Ryzen 7/9 recommended) |
 | Host Machine RAM       | 32 GB minimum (higher preferred for smooth multitasking) |
-| Host Machine Storage   | 250 GB free disk space (SSD recommended for performance) |
+| Host Machine Storage   | 250 GB free disk space |
 | Virtualization Software| VMware Workstation Pro or VMware Player (or equivalent VirtualBox) |
 | Network Setup          | NAT Network (Internet access required) |
 | Virtual Machines       | 4 VMs (Wazuh Server, Shuffle SOAR Server, Ubuntu Endpoint, Kali Linux Attacker) |
 
 ---
+## 5. Virtual Lab Setup Instructions
 
-## 5. Use Cases Implemented
+To replicate the project environment, follow these steps:
+
+- Download all required virtual machines, configuration files, and helper scripts from the following link:  
+  [Download Virtual Machines and Tools](https://demontfortuniversity-my.sharepoint.com/:f:/r/personal/p2766441_my365_dmu_ac_uk/Documents/Virtual%20Machines?csf=1&web=1&e=iQ6fFs) (DMU email login required).
+
+- Import each `.OVA` or `.OVF` file into VMware Workstation Pro (or VMware Player) using the "Open a Virtual Machine" option.  
+  Example storage path: `/Downloads/Virtual Machines/Wazuh-Server/`.
+
+- Ensure that all virtual machines are configured to operate on the same NAT network to enable internal communication between them.
+
+- Update configuration files as necessary after import:
+  - `ossec-agent.conf` for Wazuh agent connectivity
+  - `suricata.yaml` for Suricata IDS monitoring settings
+  - Verify and adjust network interface names if needed (e.g., `ens33`, `ens38`).
+
+- Download and use the scripts provided in the `/scripts` directory to perform testing activities such as ransomware simulation and alert enrichment.
+
+- Verify that all virtual machines can communicate with each other via ping, and confirm that Wazuh and Shuffle services are running correctly.
+---
+
+## 6. Use Cases Implemented
 
 | UC ID | Use Case Name                              | Detection & Response Workflow |
 |:-----|:--------------------------------------------|:-------------------------------|
@@ -70,7 +91,7 @@ To fully deploy and simulate the cybersecurity threat detection and automated re
 
 ---
 
-## 6. Repository Structure
+## 7. Repository Structure
 
 ```plaintext
 /docs          - Final project report, supporting screenshots, architecture diagrams
@@ -80,7 +101,7 @@ To fully deploy and simulate the cybersecurity threat detection and automated re
 /README.md     - This file
 ```
 
-## 7. Virtual Machine Credentials
+## 8. Virtual Machine Credentials
 
 | Virtual Machine         | Username   | Password  |
 |--------------------------|------------|-----------|
@@ -91,7 +112,7 @@ To fully deploy and simulate the cybersecurity threat detection and automated re
 
 ---
 
-## 8. Dashboard Access Credentials
+## 9. Dashboard Access Credentials
 
 | Platform         | URL                                         | Username | Password       |
 |------------------|---------------------------------------------|----------|----------------|
