@@ -16,7 +16,7 @@ The system integrates:
 - **Shuffle** for security orchestration and automated response workflows (SOAR)
 - **VirusTotal API** for threat intelligence enrichment
 
-**📥 [Access all Virtual Machines and Tools here](https://demontfortuniversity-my.sharepoint.com/:f:/r/personal/p2766441_my365_dmu_ac_uk/Documents/Virtual%20Machines?csf=1&web=1&e=iQ6fFs)**  
+**📥 [Access all Virtual Machines and Tools here](https://demontfortuniversity-my.sharepoint.com/:f:/g/personal/p2766441_my365_dmu_ac_uk/ElbY7HXZzJNCh_gf73Knaj0BJmlkT4l6dSwNkgfZWLp5qA?e=Q9fp9S)**  
 Includes all required OVA files, configurations, helper scripts, and project documentation.
 
 
