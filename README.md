@@ -41,14 +41,18 @@ Key achievements include **real-time detection**, **automated incident response*
 
 ---
 
-## 🛠️ Virtual Machines and Roles
+## 🛠️ System Requirements for Lab Simulation
 
-| System               | Role                                                                 | Configuration             | Purpose                                                        |
-|----------------------|-----------------------------------------------------------------------|----------------------------|----------------------------------------------------------------|
-| **Wazuh Server**       | Central SIEM/XDR platform for event correlation and alert generation  | 3 vCPUs, 8 GB RAM, 50 GB Disk | Core detection, correlation, and alerting engine               |
-| **Shuffle Server**     | SOAR automation platform using Docker containers                     | 3 vCPUs, 8 GB RAM, 50 GB Disk | Automates incident responses, email notifications, IP blocking |
-| **Ubuntu Endpoint**    | Employee workstation monitored by Wazuh Agent, Suricata, and Auditd   | 2 vCPUs, 4 GB RAM, 50 GB Disk | Simulates both normal user activity and malicious behaviors    |
-| **Kali Linux Attacker**| Attack simulation machine (Hydra, Nmap, Netcat, SCP, Curl, Wget)      | 1 vCPU, 3 GB RAM, 30 GB Disk | Launches real-world cyberattack scenarios for validation       |
+To fully deploy and simulate the cybersecurity threat detection and automated response framework, the following minimum system resources are recommended:
+
+| Component             | Specification              |
+|------------------------|-----------------------------|
+| Host Machine CPU       | 8 physical cores (Intel i7/i9 or AMD Ryzen 7/9 recommended) |
+| Host Machine RAM       | 32 GB minimum (higher preferred for smooth multitasking) |
+| Host Machine Storage   | 250 GB free disk space (SSD recommended for performance) |
+| Virtualization Software| VMware Workstation Pro or VMware Player (or equivalent VirtualBox) |
+| Network Setup          | NAT Network (Internet access required) |
+| Virtual Machines       | 4 VMs (Wazuh Server, Shuffle SOAR Server, Ubuntu Endpoint, Kali Linux Attacker) |
 
 ---
 
