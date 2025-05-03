@@ -1,4 +1,4 @@
-# Open-Source SIEM, IDS, SOAR Integration for Real-Time Threat Detection and Automated Response
+# Open-Source SIEM, XDR, SOAR Integration for Real-Time Threat Detection and Automated Response
 
 Final Year Cybersecurity Capstone Project | April 2025  
 **Author: Meyyappan Venkatesh**
