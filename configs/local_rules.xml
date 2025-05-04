@@ -1,0 +1,89 @@
+<!-- Local rules -->
+
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+<!-- Example -->
+<group name="local,syslog,sshd,">
+
+  <!--
+  Dec 10 01:02:02 host sshd[1234]: Failed none for root from 1.1.1.1 port 1066 ssh2
+  -->
+  <rule id="100001" level="5">
+    <if_sid>5716</if_sid>
+    <srcip>1.1.1.1</srcip>
+    <description>sshd: authentication failed from IP 1.1.1.1.</description>
+    <group>authentication_failed,pci_dss_10.2.4,pci_dss_10.2.5,</group>
+  </rule>
+</group>
+
+<group name="custom_login_rules">
+  <rule id="17101" level="9">
+    <if_sid>5715</if_sid>
+    <time>6 pm - 8:00 am</time>
+    <description>Successful login during non-business hours.</description>
+    <group>login_time,pci_dss_10.2.5,pci_dss_10.6.1,gpg13_7.1,gpg13_7.2,gdpr_IV_35.7.d,gdpr_IV_32.2,hipaa_164.312.b,nist_800_53_AU.14,nist_800_53_AC.7,nist_800_53_AU.6</group>
+  </rule>
+
+  <rule id="17102" level="9">
+    <if_group>authentication_success</if_group>
+    <weekday>weekends</weekday>
+    <description>Successful login during weekends.</description>
+    <group>login_day,pci_dss_10.2.5,pci_dss_10.6.1,gpg13_7.1,gpg13_7.2,gdpr_IV_35.7.d,gdpr_IV_32.2,hipaa_164.312.b,nist_800_53_AU.14,nist_800_53_AC.7,nist_800_53_AU.6</group>
+  </rule>
+</group>
+
+
+<!-- Advanced Ransomware Detection with if_matched_sid -->
+<group name="fim,syscheck,rapid-file-activity">
+  <rule id="199910" level="10" frequency="20" timeframe="30">
+    <if_matched_sid>553</if_matched_sid>
+    <description>🚨 Rapid File Deletion Detected: Possible ransomware or wiper activity</description>
+  </rule>
+
+  <rule id="199911" level="10" frequency="20" timeframe="30">
+    <if_matched_sid>554</if_matched_sid>
+    <description>🚨 Rapid File Creation Detected: Possible ransomware or dropper activity</description>
+  </rule>
+  
+  <rule id="199912" level="12">
+    <if_matched_sid>199911</if_matched_sid>
+    <if_matched_sid>199910</if_matched_sid>
+    <description>🟥 Confirmed Ransomware Pattern: Encrypted files + mass deletion</description>
+    <group>ransomware,critical</group>
+  </rule>
+</group>
+
+<group name="suricata,data_exfiltration,policy_violation">
+  <rule id="100078" level="12">
+    <if_sid>2020010</if_sid> <!-- Assuming Suricata event sid if using Suricata JSON -->
+    <match>confidential_report.txt</match>
+    <description>🚨 [Data Exfiltration] Confidential file accessed over the network - Potential Data Theft</description>
+  </rule>
+</group>
+
+<group name="syscheck,data_staging,zip_file_activity">
+  <rule id="200306" level="12">
+    <if_sid>550</if_sid> <!-- FIM event for file created or modified -->
+    <regex>confidential_archive\.zip</regex>
+    <description>🚨 [Data Staging] Confidential ZIP file created - Potential data aggregation for exfiltration</description>
+  </rule>
+</group>
+
+<group name="audit,suspicious_command">
+  <rule id="100210" level="12">
+    <if_sid>80792</if_sid>
+    <field name="audit.command">nmap|nc|hydra|ncat|netcat|sqlmap|tcpdump|nikto</field>
+    <description>🚨 Suspicious Command Detected: $(audit.command)</description>
+  </rule>
+</group>
+
+<group name="audit,lolbins_detection">
+  <rule id="100215" level="10">
+    <if_sid>80792</if_sid>
+    <field name="audit.command">scp|curl|wget|ftp|ssh</field>
+    <description>🚨 Potential Data Exfiltration: $(audit.command)</description>
+  </rule>
+</group>
+
+

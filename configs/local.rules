@@ -1,0 +1,8 @@
+alert tcp any any -> $HOME_NET any (msg:"[CUSTOM] Nmap SYN Scan Detected"; flags:S; threshold: type both, track by_src, count 5, seconds 10; classtype:attempted-recon; sid:9999991; rev:1;)
+
+# Detect download of confidential_report.txt
+alert http any any -> any any (msg:"[CUSTOM] Data Exfiltration - Confidential TXT File Downloaded"; http.uri; content:"/confidential_report.txt"; classtype:policy-violation; sid:100078; rev:3;)
+
+# Detect download of confidential_report.zip
+alert http any any -> any any (msg:"[CUSTOM] Data Staging - Confidential ZIP File Downloaded"; http.uri; content:"/confidential_archive.zip"; classtype:policy-violation; sid:100079; rev:2;)
+
