@@ -1,6 +1,7 @@
 # 🔧 Configuration Files
 
 This folder contains all configuration files used in the project setup. Below is a list of each file, its purpose, and its target placement on the respective virtual machines.
+Note: Please verify the configurations and make according modifications to the config files and paste it in the existing files to work properly
 
 | File Name                  | Description                                                      | Destination Path on VM                          | Applies To                |
 |---------------------------|------------------------------------------------------------------|--------------------------------------------------|---------------------------|
